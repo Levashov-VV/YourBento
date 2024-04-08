@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Infant:ital,wght@0,300;0,400;1,300&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a :focus, a :active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input ::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button ::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+}
+// Наименование цветов
+$fontBlackColor: rgb(28,28,28);
+$backColor: #B0B0A9;
+$backColorButton: #7C7C73;
+$fontWhiteColor: rgb(245 245 245);
+
+//Шрифты
+@mixin fontName{
+  font-size: 5.2vh;
+  font-weight: normal;
+  color: $fontBlackColor;
+  font-family: "Bodoni Moda";
+  font-style: normal;
+}
+
+@mixin fontText{
+  font-size: 2.5vh;
+  font-weight: 300;
+  font-family: "Cormorant Infant", serif;
+  font-style: normal;
+}
+@mixin fontButton{
+  font-size: 3.5vh;
+  font-weight: 400;
+  color: $fontBlackColor;
+  font-family: "Cormorant Infant", serif;
+  font-style: normal;
+}
+
+@mixin fontHeaderMenu{
+  font-size: 3.5vh;
+  font-weight: 300;
+  color: $fontWhiteColor;
+  font-family: "Cormorant Infant", serif;
+  font-style: normal;
+}
+
+@mixin fontHeader{
+  font-size: 5.2vh;
+  font-weight: 400;
+  font-family: "Cormorant Infant", serif;
+  font-style: normal;
+}
+@mixin fontFeedBack{
+  font-size: 2.5vh;
+  font-weight: 300;
+  font-family: "Cormorant Infant", serif;
+  font-style: italic;
+}
+// Шапка сайта
+.header{
+  background-color: $backColor;
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5vh;
+}
+.header__logo{
+  display: flex;
+  align-items: center;
+}
+.header__number{
+  @include fontHeaderMenu();
+  color:$fontBlackColor;
+  margin-left: 5.5vh;
+}
+.header__name__button{
+  background-color: $backColor;
+  @include fontName();
+  margin-right: 2vw;
+}
+.header__button{
+  @include fontButton();
+  font-size: 3.5vh;
+  background-color: $backColorButton;
+  width: 15vw;
+  height: 8vh;
+  color:$fontWhiteColor
+}
+.header__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+// Секция с карточками продукта
+.block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.block__line{
+  border: 2px solid #000;
+  width: 90vw;
+  display: flex;
+}
+.block__slider{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0vw 12.8vw;
+  gap: 3vw;
+}
+.block__slider:hover img{
+  opacity: 0.3;
+}
+.block__slider img:hover{
+  transform: perspective(800px) rotateY(0deg);
+  opacity: 1;
+}
+.block__slider img{
+  width: 20vw;
+  height: 50vh;
+  object-fit: cover;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, $fontBlackColor);
+  transform-origin: center;
+  transform: perspective(800px) rotateY(5deg);
+  transition: 0.5s;
+}
+.block__text{
+  @include fontHeader();
+  margin: 5.5vh 0px 4vh 0px;
+}
+.block__img{
+  width: 350px;
+  height: 500px;
+  margin: 5.5vh 0px 4vh 0px;
+}
+.pageProduct{
+  margin: 5% 2% 0px 18%;
+  border: 1px solid #7C7C73;
+  background-color: #7C7C73;
+  width: 64vw;
+  height: 50vh;
+}
+.pageProduct__content{
+  display: flex;
+  justify-content: space-between;
+  height: 50vh;
+}
+.pageProduct__content__img{
+  margin: 5vw 0  5vw 10vh; 
+  width: 27vh;
+  height: 27vh;
+}
+.pageProduct__text{
+  @include fontText();
+  color: $fontWhiteColor;
+  margin-left: 2vw;
+}
+.pageProduct__text__header{
+  margin: 1vh 0 0;
+  @include fontHeaderMenu();
+}
+.pageProduct__text__paragraph{
+  margin: 1vh 0 3vh;
+}
+.pageProduct__block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1.5vw 1vw;
+  height: 44vh;
+}
+.pageProduct__block__button {
+  @include fontButton();
+  position: relative;
+  color: $fontBlackColor;
+  width: 12vw;
+  height: 8vh;
+  line-height: 64px;
+  transition: all 0.3s;
+  span {
+    transition: all 0.3s;
+    transform: scale(1, 1);
+  }
+}
+.pageProduct__block__button::before, .pageProduct__block__button::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.pageProduct__block__button::before {
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.3, 1.3);
+}
+
+.pageProduct__block__button:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.pageProduct__block__button::after {
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.pageProduct__block__button:hover::after {
+  transform: scale(0, 0);
+  opacity: 0;
+}
+// Доставка
+.delivery{
+  margin: 3vh 3vw;
+}
+.delivery__paragraph{
+  @include fontText();
+  color:$fontBlackColor;
+}
+.content{
+  display: flex;
+}
+.content__text{
+  width: 40%;
+}
+.content__map{
+  width: 40vw;
+  height: 40vw;
+  margin: 5vw;
+}
+.delivery__text{
+  margin: 3vh 0px;
+  @include fontText();
+}
+.delivery__header{
+  margin: 3vh 0px;
+  @include fontHeaderMenu();
+  color: $fontBlackColor;
+}
+.delivery__title{
+  margin: 3vh 0px;
+}
+.delivery__text__title{
+  display: flex;
+  justify-content: center;
+  margin-right: 15vh;
+}
+.car{
+  width: 5vh;
+  height: 7vh;
+  margin-right: 3vh;
+}
+// Дополнительная информация
+.title{
+  display: flex;
+  justify-content: start;
+  margin: 5vh 3vw;
+}
+.title__img{
+  width: 5vw;
+  height: 5vh;
+  margin-right: 5vw;
+}
+.title__text{
+  @include fontHeaderMenu();
+  color: $fontBlackColor;
+}
+.infoText{
+  @include fontText();
+  color: $fontBlackColor;
+  margin-left: 3vw;
+  width: 90%;
+}
+.infoText__list{
+  margin-bottom: 3vh;
+}
+.rools{
+  @include fontHeader();
+  display: flex;
+  justify-content: center;
+}
+.animation{
+  margin: 10vh 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//Обратная связь
+.feedBack{
+  display: flex;
+  justify-content: space-between;
+  margin: 5vh 3vw;
+}
+//Левая часть
+.feedBack__leftpart{
+  margin: 5vh;
+  width: 30vw;
+}
+.feedBack__leftpart__input{
+  @include fontHeaderMenu();
+  color:$fontBlackColor;
+  background-color: #B0B0A9;
+  width: 100%;
+  height: 15%;
+  margin: 2vh 0;
+}
+.feedBack__leftpart__text{
+  @include fontFeedBack()
+}
+.feedBack__leftpart__file{
+  width: 100%;
+  height: 15%;
+  margin: 2vh 0;
+}
+.feedBack__leftpart__Date{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.feedBack__leftpart__img{
+  height: 3vh;
+  width: 3vw;
+}
+.feedBack__leftpart__img{
+  background-color: #fff;
+}
+// Правая часть
+.feedBack__rigthpart{
+  width: 40vw;
+}
+.feedBack__rigthpart__content{
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh 0;
+}
+.feedBack__rigthpart__text{
+  @include fontHeaderMenu();
+  color: $fontBlackColor;
+  margin: 4vh 0vw; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 5vh;
+}
+.feedBack__rigthpart__checkbox{
+  transform: scale(2);
+  margin-right: 2vw;
+  width: 0.8vw;
+}
+.feedBack__rigthpart__btn{
+  background-color: #fff;
+}
+.feedBack__rigthpart__img{
+  width: 3vw;
+  height: 3vh;
+}
+.feedBack__rigthpart__textarea{
+  @include fontHeaderMenu();
+  color: $fontBlackColor;
+  display: flex;
+  flex-direction: column;
+  margin: 3vh 0vw;
+  background-color: $backColor;
+  width: 40vw;
+  height: 15vh;
+}
+// Футер
+.footer{
+  @include fontText();
+  color: $fontBlackColor;
+  background-color: $backColor;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5vh;
+  padding: 2vh 5vw 0vh;
+}
+.footer__logo{
+  position: relative;
+  bottom: 12vh;
+  left: 2vw;
+  width: 10vw;
+  height: 10vw;
+}
+.footer__address{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.footer__range{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  margin-left: 8vw;
+}
+.footer__info{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+.footer__button{
+  background-color: $backColor;
+}
+.footer__social{
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+.footer__social__img{
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+.footer__social__btn{
+  background-color: $backColor;
+}
+.footer__social__svg{
+  height: 5vh;
+  width: 3vw;
+}
+.MoreBentoMax{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+  gap: 5vh;
+}
+.MoreBentoMax__logo{
+  width: 8vw;
+  height: 8vw;
+}
+.MoreBentoMax_text{
+  @include fontText();
+  color: $fontBlackColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+}
+.MoreBentoMax_text__title{
+  @include fontHeader()
+}
+.MoreBentoMax_text__img{
+  width: 15vw;
+  height: 55vh;
+}
+.MoreBentoMax_text__picture{
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
+}
+.felling{
+  @include fontText();
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  margin: 5vw;
+  gap:2vw;
+}
+.felling__title{
+  @include fontHeader();
+  display: flex;
+  justify-content: center;
+  margin-left: 2vw;
+}
+.felling__list{
+  @include fontText();
+  counter-reset: li; 
+  list-style: none; 
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  }
+.felling__list a {
+  display: block;
+  padding: .4em .4em .4em .8em;
+  margin: .5em 0 .5em 2.5em;
+  background: $backColor;
+  color: $fontBlackColor;
+  text-decoration: none;
+  transition: all .3s ease-out;
+  }
+.felling__list a:hover {background: $backColorButton}       
+.felling__list a:before {
+    position: absolute;
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #9097A2;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+.decor{
+  @include fontText();
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+.calendar header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.calendar header button,
+.calendar header select {
+  margin: 0 4px;
+}
+
+.calendar table{
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: auto;
+}
+.calendar th {
+  vertical-align: middle;
+  text-align: center;
+  height: 36px;
+}
+.calendar .day {
+  padding: 4px 8px;
+  vertical-align: middle;
+  text-align: center;
+  bottom: 2px solid transparent;
+}
+
+.calendar .day:hover{
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+.calendar .day.selected{
+  border: 2px solid $backColor;
+}
+.calendar .day.today {
+  border-color: dodgerblue;
+  color: $fontWhiteColor;
+}
+.calendar .day.today:hover{
+  background-color: $backColor;
+}
+.calendar .day.today.selected{
+  border: 2px solid lightgray;
+}
